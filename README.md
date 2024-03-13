@@ -6,6 +6,8 @@
 
 There are 5 main basic data types.
 
+There are 5 main basic data types.
+
 1. Numeric
     a. Integer: A whole number without a decimal point. Example: 5, -12, 0.
     b. Float: A number with a decimal point. Example: 3.14, -0.5, 2.0.
@@ -36,6 +38,7 @@ There are 5 main basic data types.
         i. empty_list = []                  # print: []
         ii. my_list = list([1, 2, 2])       # print: [1, 2, 2]
         iii. my_list = [1, 2, 2]            # print: [1, 2, 2]
+
 
 # --------------------------------------------------------------------
 """
