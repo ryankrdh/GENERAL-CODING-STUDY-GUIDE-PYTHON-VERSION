@@ -32,35 +32,60 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 
 ## 3. Boolean
 A data type that can only have two values: True or False.
+- **Examples**:
+  | Syntax | | Description | | Print |
+  |-|-|-|-|-|
+  |`bool('Hello')`| |Evaluate a string| | `True`|
+- **Examples**:
+  | Syntax | | Description | | Print |
+  |---|---|---|---|---|
+  |`bool(7)`| |Evaluate an integer (non-zero)| | `True`|
+  |`bool(0)`| |Evaluate zero| | `False`|
+  |`bool([])`| |Evaluate an empty list| | `False`|
+  |`bool({7,4})`| |Evaluate a non-empty set| | `True`|
+  |`bool(-4)`| |Evaluate a negative integer| | `True`|
+  |`bool(0.0)`| |Evaluate zero as a float| | `False`|
+  |`bool(None)`| |Evaluate `None`| | `False`|
+  |`bool(1)`| |Evaluate integer one| | `True`|
+  |`bool(range(0))`| |Evaluate an empty range| | `False`|
+  |`bool(set())`| |Evaluate an empty set| | `False`|
+  |`bool([1,2,3,4])`| |Evaluate a non-empty list| | `True`|
+
 
 ## 4. Set
-A collection of unique elements. Example: `{1, 2, 3}`.
+- **Sets**: Unordered, immutable, and do NOT allow duplicate values.
 - **Examples**:
-  | Syntax | | | | Print |
+  | Syntax | | Description | | Print |
   |-|-|-|-|-|
-  |`empty_set = set()`| | | | `set()`|
-  |`my_set = set([1, 2, 2])`| | | | `{1, 2}` |
-  |`my_set = {1, 2, 2}`| | | | `{1, 2}` |
+  |`empty_set = set()`| |Initialize an empty set| | `set()`|
+  |`my_set = {1, 2}`| |Initialize a set with elements| | `{1, 2}` |
+  |`my_set = set([1, 2, 2])`| |Change list into set| | `{1, 2}` |
 
 
 ## 5. Sequence Type
-- **Strings**: A sequence of characters. Example: "hello", 'world'.
-- **Tuple**: An immutable sequence of elements. Example: (1, 2, 2).
+- **Strings**: Ordered, immutable, and allow duplicate values.
+  | Syntax | |Description| | Print |
+  |-|-|-|-|-|
+  |`string = 'Hello`| |Initilize a variable with a string| | `Hello`|
+  |`string[1]`| |Locate and return a string by INDEX| | `e`|
+- **Tuple**: Ordered, immutable, and allow duplicate values.
 - **Examples**:
   | Syntax | | | | Print |
   |-|-|-|-|-|
-  |`empty_tuple = ()`| | | | `()`|
-  |`my_tuple = tuple([1, 2, 2])`| | | | `(1, 2, 2)` |
-  |`my_tuple = (1, 2, 2)`| | | | `(1, 2, 2)` |
-
+  |`empty_tuple = ()`| |Initialize an empty tuple| | `()`|
+  |`my_tuple = (1, 2, 2)`| |Initialize a tuple with elements| | `(1, 2, 2)` |
+  |`my_tuple = tuple([1, 2, 2])`| |Change list into tuple| | `(1, 2, 2)` |
+- **List**: Ordered, mutable, and allow duplicate values.
 - **Examples**:
-  | Syntax | | | | Print |
+  | Syntax | |Description| | Print |
   |-|-|-|-|-|
-  |`empty_list = []`| | | | `[]`|
-  |`my_list = list([1, 2, 2])`| | | | `[1, 2, 2]` |
-  |`my_list = [1, 2, 2]`| | | | `[1, 2, 2]` |
+  |`empty_list = []`| |Initilize an empty list| | `[]`|
+  |`my_list = [1, 2, 2]`| |Initialize a list with elements| | `[1, 2, 2]` |
+  |`my_list = list([1, 2, 2])`| |Change tuple into list| | `[1, 2, 2]` |
 
 
+
+### Python Facts: 
 # --------------------------------------------------------------------
 &nbsp;
 #
@@ -112,61 +137,50 @@ NOTE:
 ![Untitled](https://user-images.githubusercontent.com/47276307/172330098-1c5f0a6e-7f80-4f4f-9be6-1d734e2c70cd.jpg)
 
 
-
 # --------------------------------------------------------------------
 &nbsp;
 #
 # DATA STRUCTURES: List or String Slicing in Python
 &nbsp;
 
-```python
-It's pretty simple really:
 
-a[start:stop]  # items start through stop-1
-a[start:]      # items start through the rest of the array
-a[:stop]       # items from the beginning through stop-1
-a[:]           # a copy of the whole array
-There is also the step value, which can be used with any of the above:
+Python slicing allows you to select parts of an array (or list) with ease. Here's a breakdown:
 
-a[start:stop:step] # start through not past stop, by step
-The key point to remember is that the :stop value represents the first value
-that is not in the selected slice. So, the difference between stop and start is
-the number of elements selected (if step is 1, the default).
+- **Basic Slicing**:
+  - `a[start:stop]`: Gets items from index `start` to `stop-1`.
+  - `a[start:]`: Gets items from `start` to the end.
+  - `a[:stop]`: Gets items from the beginning to `stop-1`.
+  - `a[:]`: Copies the whole array.
 
-The other feature is that start or stop may be a negative number, which means
-it counts from the end of the array instead of the beginning. So:
+- **Advanced Slicing with Step**:
+  - `a[start:stop:step]`: Gets items from `start` to `stop-1`, skipping items by `step`.
 
-a[-1]    # last item in the array
-a[-2:]   # last two items in the array
-a[:-2]   # everything except the last two items
-Similarly, step may be a negative number:
+**Key Points**:
+- The `stop` index isn't included in the selection.
+- Default `step` is 1, selecting consecutive items.
+- Negative `start` or `stop` counts from the end.
+- Negative `step` reverses the direction.
 
-a[::-1]    # all items in the array, reversed
-a[1::-1]   # the first two items, reversed
-a[:-3:-1]  # the last two items, reversed
-a[-3::-1]  # everything except the last two items, reversed
-Python is kind to the programmer if there are fewer items than you ask for. For
-example, if you ask for a[:-2] and a only contains one element, you get an
-empty list instead of an error. Sometimes you would prefer the error, so you
-have to be aware that this may happen.
+**Negative Indices Examples**:
+- `a[-1]`: Last item.
+- `a[-2:]`: Last two items.
+- `a[:-2]`: Everything except the last two items.
+- `a[::-1]`: All items, reversed.
 
-Relation to slice() object
-The slicing operator [] is actually being used in the above code with a slice()
-object using the : notation (which is only valid within []), i.e.:
+**Python's Forgiveness**:
+- If a slice exceeds array bounds, it adjusts without errors.
 
-a[start:stop:step]
-is equivalent to:
+**Slice Object**:
+- `a[start:stop:step]` is shorthand for `a[slice(start, stop, step)]`.
+- `slice()` is useful for dynamic slicing. For skipped parameters, use `None`.
 
-a[slice(start, stop, step)]
-Slice objects also behave slightly differently depending on the number of
-arguments, similarly to range(), i.e. both slice(stop) and slice(start, stop[,
-step]) are supported. To skip specifying a given argument, one might use None,
-so that e.g. a[start:] is equivalent to a[slice(start, None)] or a[::-1] is
-equivalent to a[slice(None, None, -1)].
+**Examples**:
+- `a[slice(start, None)]` equals `a[start:]`.
+- `a[slice(None, None, -1)]` equals `a[::-1]`.
 
-While the :-based notation is very helpful for simple slicing, the explicit use
-of slice() objects simplifies the programmatic generation of slicing.
-```
+Using `slice()` allows for flexibility and programmability in slicing operations.
+
+
 
 
 # --------------------------------------------------------------------
