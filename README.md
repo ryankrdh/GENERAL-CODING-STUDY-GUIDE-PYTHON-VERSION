@@ -1,11 +1,8 @@
 # PYTHON-STUDY-GUIDE
 
-# --------------------------------------------------------------------
-# ------------------------- DATA STRUCTURES --------------------------
-# --------------------------------------------------------------------
-"""
-DATA STRUCTURES: DATA TYPES
-"""
+# ----------------- DATA STRUCTURES ------------------
+
+# DATA STRUCTURES: DATA TYPES
 
 There are 5 main basic data types.
 
