@@ -10,15 +10,15 @@
 &nbsp;
 #
 # DATA STRUCTURES: Basic Data Types
-&nbsp;
-
 >There are 5 main basic data types.
 
+&nbsp;
 ## 1. Numeric
 - **Integer**: A whole number without a decimal point. Example: 5, -12, 0.
 - **Float**: A number with a decimal point. Example: 3.14, -0.5, 2.0.
 - **Complex Number**: A number that has both a real part (like regular numbers) and an imaginary part (like numbers with 'i' in math). For example, 2+3i or -1-2i.
 
+&nbsp;
 ## 2. Dictionary
 A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 - **Keys**: Strings, numbers, and tuples. Immutable data types.
@@ -30,15 +30,42 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
     |`my_dict = dict([('a', 1), ('b', 2)])`| | | | `{'a': 1, 'b': 2}` |
     |`my_dict = {'a': 1, 'b': 2}`| | | | `{'a': 1, 'b': 2}` |
 
+&nbsp;
 ## 3. Boolean
-A data type that can only have two values: True or False.
-- **Examples**:
-  | Syntax | | Description | | Print |
-  |-|-|-|-|-|
-  |`bool('Hello')`| |Evaluate a string| | `True`|
+- **Boolean**: A data type that can only have two values: True or False.
+    - Values that evaluate to **False** are considered **Falsy**.
+    - Values that evaluate to **True** are considered **Truthy**.
+
+### Falsy Values Include:
+
+1. **Sequences and Collections**:
+   - Empty lists `[]`
+   - Empty tuples `()`
+   - Empty dictionaries `{}`
+   - Empty sets `set()`
+   - Empty strings `""`
+   - Empty ranges `range(0)`
+
+2. **Numbers**: Zero of any numeric type.
+   - Integer: `0`
+   - Float: `0.0`
+   - Complex: `0j`
+
+3. **Constants**:
+   - `None`
+   - `False`
+
+### Truthy Values Include:
+
+- Non-empty sequences or collections (lists, tuples, strings, dictionaries, sets).
+- Numeric values that are not zero.
+- Constant: `True`
+
+&nbsp;
 - **Examples**:
   | Syntax | | Description | | Print |
   |---|---|---|---|---|
+  |`bool('Hello')`| |Evaluate a string| | `True`|
   |`bool(7)`| |Evaluate an integer (non-zero)| | `True`|
   |`bool(0)`| |Evaluate zero| | `False`|
   |`bool([])`| |Evaluate an empty list| | `False`|
@@ -51,7 +78,7 @@ A data type that can only have two values: True or False.
   |`bool(set())`| |Evaluate an empty set| | `False`|
   |`bool([1,2,3,4])`| |Evaluate a non-empty list| | `True`|
 
-
+&nbsp;
 ## 4. Set
 - **Sets**: Unordered, immutable, and do NOT allow duplicate values.
 - **Examples**:
@@ -61,7 +88,7 @@ A data type that can only have two values: True or False.
   |`my_set = {1, 2}`| |Initialize a set with elements| | `{1, 2}` |
   |`my_set = set([1, 2, 2])`| |Change list into set| | `{1, 2}` |
 
-
+&nbsp;
 ## 5. Sequence Type
 - **Strings**: Ordered, immutable, and allow duplicate values.
   | Syntax | |Description| | Print |
@@ -83,10 +110,6 @@ A data type that can only have two values: True or False.
   |`my_list = [1, 2, 2]`| |Initialize a list with elements| | `[1, 2, 2]` |
   |`my_list = list([1, 2, 2])`| |Change tuple into list| | `[1, 2, 2]` |
 
-
-
-### Python Facts: 
-# --------------------------------------------------------------------
 &nbsp;
 #
 # DATA STRUCTURES: Lists
@@ -136,24 +159,35 @@ NOTE:
 
 ![Untitled](https://user-images.githubusercontent.com/47276307/172330098-1c5f0a6e-7f80-4f4f-9be6-1d734e2c70cd.jpg)
 
+## Array vs List in Python
 
-# --------------------------------------------------------------------
+### Array
+- **Definition**: An array is a collection of items stored at contiguous memory locations. In Python, arrays are specifically used to store elements of the *SAME* data type.
+- **Import**: Requires importing the `array` module or `numpy` for more functionality.
+- **Performance**: Generally faster for numerical operations and large datasets due to fixed data type.
+- **Use cases**: Suitable for mathematical operations and where memory efficiency is critical.
+
+### List
+- **Definition**: A list is a collection of items which can be of *DIFFERENT* data types. Lists are built-in data structures in Python.
+- **Import**: No need to import any module to use lists.
+- **Performance**: Slower compared to arrays when dealing with large datasets or numerical operations.
+- **Use cases**: Perfect for general use cases where a collection of diverse items is needed.
+
 &nbsp;
 #
 # DATA STRUCTURES: List or String Slicing in Python
 &nbsp;
 
-
 Python slicing allows you to select parts of an array (or list) with ease. Here's a breakdown:
 
 - **Basic Slicing**:
-  - `a[start:stop]`: Gets items from index `start` to `stop-1`.
+  - `a[start:stop]`: Gets items from index `start` to `stop - 1`.
   - `a[start:]`: Gets items from `start` to the end.
-  - `a[:stop]`: Gets items from the beginning to `stop-1`.
+  - `a[:stop]`: Gets items from the beginning to `stop - 1`.
   - `a[:]`: Copies the whole array.
 
 - **Advanced Slicing with Step**:
-  - `a[start:stop:step]`: Gets items from `start` to `stop-1`, skipping items by `step`.
+  - `a[start:stop:step]`: Gets items from `start` to `stop - 1`, skipping items by `step`.
 
 **Key Points**:
 - The `stop` index isn't included in the selection.
@@ -161,12 +195,40 @@ Python slicing allows you to select parts of an array (or list) with ease. Here'
 - Negative `start` or `stop` counts from the end.
 - Negative `step` reverses the direction.
 
-**Negative Indices Examples**:
-- `a[-1]`: Last item.
-- `a[-2:]`: Last two items.
-- `a[:-2]`: Everything except the last two items.
-- `a[::-1]`: All items, reversed.
+&nbsp;
+- **Negative Indices Examples**:
+  >`a = [4, 2, 6, 8, 2, 3]`
 
+  >`b = ['a', 'b', 'c', 'd', 'e', 'f']`
+
+| Syntax | Description | Print |
+|--------|-------------|-------|
+| `a[1:3]` | Select items from index 1 to 2 (end exclusive) | `[2, 6]` |
+| `a[2:6]` | Select items from index 2 to 5 | `[6, 8, 2, 3]` |
+| `a[2:6:2]` | Select items from index 2 to 5 with step 2 | `[6, 2]` |
+| `a[0:8:3]` | Select items from index 0 to 7 with step 3 | `[4, 8]` |
+| `a[:-2]` | Select everything except the last two items | `[4, 2, 6, 8]` |
+| `a[:-2:2]` | Select every second item, stopping before the last two | `[4, 6]` |
+| `a[::4]` | Select every fourth item from start to end | `[4, 2]` |
+| `a[2:-2]` | Select from the 3rd item to the second from last item | `[6, 8]` |
+| `b[2:-2]` (with strings) | From 3rd character to the second from last | `['c', 'd']` |
+| `a[-2:]` | Select the last two characters (for strings) or items | `[2, 3]` |
+| `a[2:3]` | Slicing a list gives a list, even for a single item | `[6]` |
+| `a[2]` | Indexing gives the element itself | `6` |
+| `b[2:3]` (with strings) | Slicing a list of strings | `['c']` |
+| `b[2]` (with strings) | Indexing a list of strings | `c` |
+| `a[::-1]` | Reverse the list with step -1 | `[3, 2, 8, 6, 2, 4]` |
+| `a[::-2]` | Reverse the list with step -2 | `[3, 8, 2]` |
+| `a[1::-1]` | The first two items, reversed | `[2, 4]` |
+| `a[3::-1]` | The first four items, reversed | `[8, 6, 2, 4]` |
+| `a[3:1:-1]` | The first four items, starting at last two reversed | `[8, 6]` |
+| `a[:-3:-1]` | The last two items, reversed | `[3, 2]` |
+| `a[:-5:-1]` | The last four items, reversed | `[3, 2, 8, 6]` |
+| `a[3:-5:-1]` | The last four items, starting at index 3 reversed | `[8, 6]` |
+| `a[-3::-1]` | Everything except the last two items, reversed | `[8, 6, 2, 4]` |
+
+&nbsp;
+## Python Slicing Facts:
 **Python's Forgiveness**:
 - If a slice exceeds array bounds, it adjusts without errors.
 
@@ -186,7 +248,7 @@ Using `slice()` allows for flexibility and programmability in slicing operations
 # --------------------------------------------------------------------
 &nbsp;
 #
-# DATA STRUCTURES: Basic Data Types
+# DATA STRUCTURES: Dictionary
 &nbsp;
 
 
