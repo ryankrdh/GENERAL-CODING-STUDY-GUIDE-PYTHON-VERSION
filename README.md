@@ -24,7 +24,7 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 - **Keys**: Strings, numbers, and tuples. Immutable data types.
 - **Values**: Any types can be a value.
 - **Examples**:
-    | Syntax | | | | Print |
+    | Syntax | | | | Returns |
     |-|-|-|-|-|
     |`empty_dict = {}`| | | | `{}`|
     |`my_dict = dict([('a', 1), ('b', 2)])`| | | | `{'a': 1, 'b': 2}` |
@@ -63,7 +63,7 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 
 &nbsp;
 - **Examples**:
-  | Syntax | | Description | | Print |
+  | Syntax | | Description | | Returns |
   |---|---|---|---|---|
   |`bool('Hello')`| |Evaluate a string| | `True`|
   |`bool(7)`| |Evaluate an integer (non-zero)| | `True`|
@@ -82,7 +82,7 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 ## 4. Set
 - **Sets**: Unordered, immutable, and do NOT allow duplicate values.
 - **Examples**:
-  | Syntax | | Description | | Print |
+  | Syntax | | Description | | Returns |
   |-|-|-|-|-|
   |`empty_set = set()`| |Initialize an empty set| | `set()`|
   |`my_set = {1, 2}`| |Initialize a set with elements| | `{1, 2}` |
@@ -91,20 +91,20 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 &nbsp;
 ## 5. Sequence Type
 - **Strings**: Ordered, immutable, and allow duplicate values.
-  | Syntax | |Description| | Print |
+  | Syntax | |Description| | Returns |
   |-|-|-|-|-|
   |`string = 'Hello`| |Initilize a variable with a string| | `Hello`|
-  |`string[1]`| |Locate and return a string by INDEX| | `e`|
+  |`string[1]`| |Locate and Returns a string by INDEX| | `e`|
 - **Tuple**: Ordered, immutable, and allow duplicate values.
 - **Examples**:
-  | Syntax | | | | Print |
+  | Syntax | | | | Returns |
   |-|-|-|-|-|
   |`empty_tuple = ()`| |Initialize an empty tuple| | `()`|
   |`my_tuple = (1, 2, 2)`| |Initialize a tuple with elements| | `(1, 2, 2)` |
   |`my_tuple = tuple([1, 2, 2])`| |Change list into tuple| | `(1, 2, 2)` |
 - **List**: Ordered, mutable, and allow duplicate values.
 - **Examples**:
-  | Syntax | |Description| | Print |
+  | Syntax | |Description| | Returns |
   |-|-|-|-|-|
   |`empty_list = []`| |Initilize an empty list| | `[]`|
   |`my_list = [1, 2, 2]`| |Initialize a list with elements| | `[1, 2, 2]` |
@@ -115,7 +115,7 @@ A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
 # DATA STRUCTURES: Lists
 &nbsp;
 ## List Methods (Most Commonly Used)
-*Notice how some methods need to be saved to a variable because they return a result instead of directly changing the list.*
+*Notice how some methods CAN be saved to a variable because they return a result instead of directly changing the list.*
 
 | Operation | | Description | | Returns |
   |-|-|-|-|-|
@@ -201,7 +201,7 @@ Python slicing allows you to select parts of an array (or list) with ease. Here'
 
   >`b = ['a', 'b', 'c', 'd', 'e', 'f']`
 
-| Syntax | Description | Print |
+| Syntax | Description | Returns |
 |--------|-------------|-------|
 | `a[1:3]` | Select items from index 1 to 2 (end exclusive) | `[2, 6]` |
 | `a[2:6]` | Select items from index 2 to 5 | `[6, 8, 2, 3]` |
@@ -243,16 +243,43 @@ Python slicing allows you to select parts of an array (or list) with ease. Here'
 Using `slice()` allows for flexibility and programmability in slicing operations.
 
 
-
-
-# --------------------------------------------------------------------
 &nbsp;
 #
 # DATA STRUCTURES: Dictionary
 &nbsp;
 
+## Dictionary Methods (Most Commonly Used)
 
+| Operation | | Description | | Returns |
+|-----------|-|-------------|-|---------|
+|`dict = {'a':1,'b':2,'c':3}`||Initialize dictionary named dict||`{'a':1,'b':2,'c':3}`|
+|`dict.keys()`||Returns list of keys of dictionary||List of keys `['a', 'b', 'c']`|
+|`dict.values()`||Returns list of values of dictionary||List of values `[1, 2, 3]`|
+|`dict.get('a')`||Returns value for any corresponding key 'a'||`1`|
+|`dict.items()`||Returns list of key-value pairs||List of tuples `[('a', 1), ('b', 2), ('c', 3)]`|
+|`dict.pop('a')`||Pops key-value pair with key 'a'||Value of popped key `1`. `dict = {'b':2,'c':3}`|
+|`dict.popitem()`||Removes the most recent pair added||Last key-value pair as tuple popped `('c', 3)`. `dict = {'a': 1, 'b': 2}`|
+|`dict.update({'b': 5})`||Inserts {'e': 5} into dict; overrides if 'e' exists||Updated dict with `'b': 5`. `dict = {'a': 1, 'b': 5, 'c': 3}`|
 
+&nbsp;
+## Dictionary Methods (Least Commonly Used)
+*You will need to import a module to use defaultdict. `
+from collections import defaultdict`*
+
+*Dictionary's methods `setdefault` and `defaultdict` can be manually coded. Up to you if you want to use the methods. Always a good idea to confirm with the interviewer if you can use certain methods.*
+
+&nbsp;
+| Operation | | Description | | Returns |
+|-----------|-|-------------|-|---------|
+|`dict.copy()`||Returns a copy of the dictionary||Copy of dict `{'a':1,'b':2,'c':3}`|
+|`defaultdict(list)`||Ensures access to non-existent keys creates a new list entry||A default list for new keys|
+|`dict.setdefault('d', 4)`||If 'd' exists, returns its value; otherwise, sets 'd' to 4 and returns 4||`{'a': 1, 'b': 2, 'c': 3, 'd': 4}`|
+
+&nbsp;
+## Time Complexities for Dictionary Methods
+>NOTE: Amortized analysis ensures that over a series of operations, the average cost per operation remains low, even if a few operations are expensive.
+
+![Untitled](https://user-images.githubusercontent.com/47276307/172330107-e68e3228-1c76-4bfb-bb38-04d18f94d5b9.jpg)
 
 # --------------------------------------------------------------------
 &nbsp;
