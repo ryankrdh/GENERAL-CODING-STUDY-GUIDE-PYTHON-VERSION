@@ -28,7 +28,7 @@ import pytest
 def test_assert_equal():
     a = "hello"
     b = "hello"
-    assert a == b
+    assert a == b, "Error message"
 
 # Type this in command line to test:
 python -m pytest
@@ -60,46 +60,55 @@ python -m pytest
 | `assert not isinstance(a, b)` | `not isinstance(a, b)` | `assert not isinstance(42, str)`             |
 
 &nbsp;
-### Pytest Parametrize
-@pytest.mark.parametrize allows one to define multiple sets of arguments and fixtures at the test function or class. 
 
-Note: Import pytest IS required at the top of the page. <br>
 
-Example:
-
+## Pytest Sample Codes
 ```python
-import pytest
-from your_module import Multiplier
+# Using Pytest Assert WITH For Loop
+def test_process_string():
+    """Test for process_string function"""
 
-# Define test cases as tuples: (number, factor, expected_product)
-test_cases_multiply = [
-    (2, 3, 6),
-    (5, 0, 0),
-    (-1, 10, -10),
-    (3, -3, -9),
-    (0, 0, 0),
-]
+    test_cases = [
+        ("bes^mc*uer^xlt*a", "secret"),
+        ("nas*o*veul^zit^no^pr", "solution"),
+        ("zeM^un-e*0 t^a*l t^75*4a1:^s35*A,P ^2NM* ,^Mc.+GcO^ t^3*,0^2 ^5m0*x81^bes^mc*uer^xlt*a", "Meet at 5:15 PM, Oct 30, 2018secret")
+    ]
 
-@pytest.mark.parametrize("number, factor, expected_product", test_cases_multiply)
-def test_multiply(number, factor, expected_product):
-    """Test Multiplier.multiply method with various inputs."""
-    multiplier = Multiplier()
-    assert multiplier.multiply(number, factor) == expected_product
+    for input_string, expected_output in test_cases:
+        string_processor = StringProcessor()
+        string_processor.process_string(input_string)
+        test_case_result = ''.join(string_processor.solution)
 
+        assert test_case_result == expected_output, f"Expected {expected_output}, got {test_case_result}."
 ```
+```python
+# Using Pytest Assert WITHOUT For Loop
+def test_process_string_combined():
+    """Test for process_string function with multiple inputs."""
+    string_processor = StringProcessor()
+    
+    # Process the first string
+    string_processor.process_string("bes^mc*uer^xlt*a")
+    # Assuming process_string modifies `self.solution` which needs to be joined to form a string
+    test_case1_result = ''.join(string_processor.solution)
+    assert test_case1_result == "secret", f"It should return the string, 'secret', but got {test_case1_result}"
 
-&nbsp;
-## Pytest Parametrize Test Samples
+    # Reset the processor or its solution attribute for a fresh start
+    string_processor.solution = []
 
-| Number | Factor | Expected Product | Description                     |
-|--------|--------|------------------|---------------------------------|
-| 2      | 3      | 6                | Simple multiplication           |
-| 5      | 0      | 0                | Multiplying by zero             |
-| -1     | 10     | -10              | Negative number                 |
-| 3      | -3     | -9               | Negative factor                 |
-| 0      | 0      | 0                | Zero times zero                 |
+    # Process the second string
+    string_processor.process_string("nas*o*veul^zit^no^pr")
+    test_case2_result = ''.join(string_processor.solution)
+    assert test_case2_result == "solution", f"It should return the string, 'solution', but got {test_case2_result}"
 
-
+    # Reset the processor or its solution attribute for a fresh start
+    string_processor.solution = []
+    
+    # Process the third string
+    string_processor.process_string("zeM^un-e*0 t^a*l t^75*4a1:^s35*A,P ^2NM* ,^Mc.+GcO^ t^3*,0^2 ^5m0*x81^bes^mc*uer^xlt*a")
+    test_case3_result = ''.join(string_processor.solution)
+    assert test_case3_result == "Meet at 5:15 PM, Oct 30, 2018secret", f"It should return the string, 'solution', but got {test_case3_result}"
+```
 
 
 &nbsp;
