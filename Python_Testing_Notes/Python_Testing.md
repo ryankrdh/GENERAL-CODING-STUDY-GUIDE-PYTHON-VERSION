@@ -20,6 +20,9 @@
 Note: import pytest may be required at the top of the page. <br>
 Unlike Unittest, Pytest does not require a class-based structure.
 
+> To run pytest on all test in the directory. 
+> In command line: python3 -m pytest
+
 Example:
 
 ```python
@@ -122,6 +125,9 @@ def test_process_string_combined():
 Note: import unittest required at the top of the page. <br>
 Unittest also requires that you create a class. <br>
 If you want to use unittest assertions OUTSIDE of a class, you have to create a instance of unittest.TestCase() and call the methods on that. 
+
+> To run unittest on all test in the directory. 
+> In command line: python3 -m unittest
 
 Example:
 
