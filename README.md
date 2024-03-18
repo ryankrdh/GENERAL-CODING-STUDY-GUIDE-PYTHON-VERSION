@@ -1,4 +1,4 @@
-# PYTHON-STUDY-GUIDE- Hyunmin Kim 
+# PYTHON-STUDY-GUIDE-Hyunmin Kim 
 
 &nbsp;
 #
