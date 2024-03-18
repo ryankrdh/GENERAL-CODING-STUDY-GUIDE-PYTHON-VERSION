@@ -3,7 +3,7 @@
 
 > NOTE: Pytest and Unittest are two different testing frameworks.
 
-### **Pytest** 
+### **Pytest** (import python)
     A testing framework that requires installation. It emphasizes simplicity, scalability and ease of use, making it a favored choice among developers.
 
 ### **Unittest** (import unittest)
