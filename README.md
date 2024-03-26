@@ -279,14 +279,40 @@ from collections import defaultdict`*
 
 ![Untitled](https://user-images.githubusercontent.com/47276307/172330107-e68e3228-1c76-4bfb-bb38-04d18f94d5b9.jpg)
 
+&nbsp;
+# To be added in the future:
 
+## HEAPS (MIN HEAP, MAX HEAP): 
+If you're manually adding each value to the heap, you will be doing it in O(n log n) time. However, if you're building a heap and if you have all the inputs available, you can build it in O(n) time.
+top() -> O(1)
+insert() -> O(log n)
+remove() -> O(log n)
+heapify() -> O(n)
+## Linked List
+## Trees
+## Graphs
 &nbsp;
 #
 #
 # ALGORITHMS
+
 #
 &nbsp;
+&nbsp;
+# To be added in the future:
+## TWO POINTERS
+## SLIDING WINDOW
+## BINARY SEARCH (log n)
+## RECURSION:
+Recursion of trees, graphs, backtracking, Dynamic programming, and more. You need to know this really well in order to not struggle with DFS & BFS
+## DFS & BFS (Most of the time it is O(V + E)):
+This algorithm is the building blocks for complex algorithms like Djikstra, kruskal, prims, bellman-ford, and etc.
+## DIVIDE AND CONQUER
 
+&nbsp;
+# Not so common but we will still review:
+## Bit Manipulation
+## Topological Sort
 
 
 
