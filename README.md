@@ -300,6 +300,10 @@ heapify() -> O(n)
 &nbsp;
 &nbsp;
 # To be added in the future:
+
+
+
+
 ## TWO POINTERS
 ## SLIDING WINDOW
 ## BINARY SEARCH (log n)
@@ -308,11 +312,79 @@ Recursion of trees, graphs, backtracking, Dynamic programming, and more. You nee
 ## DFS & BFS (Most of the time it is O(V + E)):
 This algorithm is the building blocks for complex algorithms like Djikstra, kruskal, prims, bellman-ford, and etc.
 ## DIVIDE AND CONQUER
+## Dijkstra
+##
 
 &nbsp;
 # Not so common but we will still review:
 ## Bit Manipulation
 ## Topological Sort
+## Kruskal's algorithm
+## Prim's algorithm
 
 
+&nbsp;
+# Recognizing patterns in leetcode questions:
 
+## Common Algorithms and Data Structures Guide
+
+### 1. **Binary Search**
+- **Use Case:** Effective on sorted arrays for quick element lookup.
+- **Efficiency:** O(log n) time complexity by halving the search space each iteration.
+
+### 2. **Two Pointers**
+- **Use Case:** Ideal for comparing elements in arrays or linked lists without extra space.
+- **Efficiency:** Achieves linear time complexity without extra space.
+
+### 3. **Sliding Window**
+- **Use Case:** Suitable for finding subarrays or substrings of a specific size with a linear scan.
+- **Efficiency:** Maintains a subset of data, achieving linear time complexity.
+
+### 4. **Breadth-First Search (BFS)**
+- **Use Case:** Excellent for shortest path problems in unweighted graphs or level-order tree traversal.
+- **Efficiency:** Explores all neighbors at current depth before moving to the next level.
+
+### 5. **Depth-First Search (DFS)**
+- **Use Case:** Great for exploring all paths or confirming path existence in graphs or trees.
+- **Efficiency:** Goes deep down one path before backtracking.
+
+### 6. **Recursion**
+- **Use Case:** Applicable to problems where the solution involves solving smaller instances of the same problem.
+- **Efficiency:** Can be less efficient and more memory intensive but simplifies complex problems.
+
+### 7. **Backtracking**
+- **Use Case:** Effective for decision space exploration, such as in puzzles or combinatorial problems.
+- **Efficiency:** Allows incremental building and abandoning of solution candidates.
+
+### 8. **Divide and Conquer**
+- **Use Case:** Useful when problems can be divided into smaller, similar problems solved recursively.
+- **Efficiency:** Often optimizes over simple iterative solutions, helpful in parallel processing.
+
+### 9. **Dynamic Programming**
+- **Use Case:** Best for problems with overlapping subproblems like shortest paths or optimization issues.
+- **Efficiency:** Reduces time complexity at the expense of space complexity through memoization or tabulation.
+
+### 10. **Greedy Algorithms**
+- **Use Case:** Optimal for problems where local optimum choices lead to a global optimum.
+- **Efficiency:** Simpler and faster than more complex algorithms like dynamic programming for certain optimization problems.
+
+### 11. **Graph Algorithms**
+- **Use Case:** Includes algorithms for shortest paths, minimum spanning trees, and cycle detection.
+- **Efficiency:** Each algorithm optimizes a specific aspect of graph traversal.
+
+### 12. **Sorting Algorithms**
+- **Use Case:** Various algorithms like quicksort, mergesort, and heapsort are chosen based on data characteristics.
+- **Efficiency:** The choice of algorithm affects performance, especially important in large datasets.
+
+### 13. **Hashing**
+- **Use Case:** Used for quick data retrieval, duplicate detection, and indexing.
+- **Efficiency:** Provides O(1) average-case time complexity for key-based data operations.
+
+
+### General Problem-Solving Tips
+- **Max-Min/Min-Max Problems:** Consider using binary search if the array is sorted.
+- **K-th Element Problems:** Look into using a heap for efficient retrieval of k-th smallest/largest elements.
+- **Subarray Problems:** Avoid sorting as it changes the original order of elements, which is crucial for subarray integrity.
+- **Small Data Sets (< 1000 elements):** Brute force approaches might be viable and simple to implement.
+- **Tree or Graph Problems:** Typically start by considering Depth-First Search (DFS) or Breadth-First Search (BFS).
+- **Shortest Path Problems:** Breadth-First Search (BFS) is ideal for unweighted graphs to find the shortest path.
