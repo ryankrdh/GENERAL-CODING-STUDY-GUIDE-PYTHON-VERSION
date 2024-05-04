@@ -1,5 +1,67 @@
 # PYTHON-STUDY-GUIDE-Hyunmin Kim 
 
+
+## Key Points for Every Technical Interview
+
+### 1. **Ask Questions and Don't Assume Anything**
+Always clarify the problem statement even if it seems familiar. Don't make assumptions; explicitly confirm details to ensure understanding.
+
+#### Example Questions You Might Need To Ask:
+- Are there any constraints to the parameter or solution? (How big is the input size?)
+- Will you be dealing with negative numbers? Floating points?
+- Will the numbers be in string or integer form?
+- Should I consider edge cases such as an empty or invalid inputs?
+- Are there any time and space complexities constraints?
+- What input will you give and what output is expected?
+- Will there be duplicates in the input? If so, how do you want me to handle it?
+- Is it okay to use built-in functions?
+- What to output if no solution is found?
+
+### 2. **If Stuck On Logic**
+
+- Reduce the problem to a simpler version.
+- Don't think about code, think what a human would do. 
+
+Example: Imagine how you as a human will find two consecutive numbers that add to a target in an array of numbers. You would likely start at the beginning of the array and add each pair of consecutive numbers to see if they match the garget sum. If they don't you would simply move to the next pair and repeat the process until you find a match or reach the end of the array. 
+
+After you finish your brute force completely then you can think of optimization like binary search.
+
+### 3. **If Stuck, Return to Pseudocode**
+If you find yourself struggling during the coding stage, stop everything and go back to your pseudocode, most likely your logic is not complete and you need to go back and re-think.
+
+### 4. **Organise your thoughts, and ALWAYS coomunicate your thought process**
+- Start by confirming your understanding to the interviewer.
+- Explain your approach BEFORE coding/pseudo coding.
+- Think ALOUD during coding.
+
+
+---------------------------------------------------------------------------------
+
+## PREP Methodology
+
+### **Parameters**
+- **Validate Input First:** Always check the inputs first to handle any edge cases.
+
+### **Return Values**
+- **Define What to Return:** Ensure you know what the function needs to return to pass the test cases.
+
+### **Examples**
+- **Work Through Examples:** Use examples to clarify edge cases and validate that your approach covers all possible scenarios.
+
+### **Pseudocode**
+- **Simplify the Coding Process:** Describe your solution in a structured way that mimics coding logic but in simplified terms.
+
+#### Pseudocode Example
+- **Prompt:** You are given a list. Order the numbers inside from least to greatest.
+  ```plaintext
+  1. For each index i in the list:
+     a. Find the smallest number in the list from index i to the end.
+     b. Swap the smallest number found with the number at index i.
+  2. Return the sorted list.
+
+
+
+
 &nbsp;
 #
 #
