@@ -1,4 +1,4 @@
-# CODING-INTERVIEW-STUDY-GUIDE-Hyunmin Kim 
+# CODING INTERVIEW STUDY GUIDE - Hyunmin Kim 
 
 
 ## Key Points for Every Technical Interview
