@@ -81,7 +81,7 @@ If you find yourself struggling during the coding stage, stop everything and go 
 &nbsp;
 ## 2. Dictionary
 A collection of key-value pairs. Example: `{'apple': 2, 'banana': 3}`.
-- **Keys**: Strings, numbers, and tuples. Immutable data types.
+- **Keys**: Typically, dictionary keys are strings, numbers, or tuples because these are immutable. However, you can use any object as a key if you implement an "equals" method for that object. 
 - **Values**: Any types can be a value.
 - **Examples**:
     | Syntax | | | | Returns |
@@ -381,8 +381,6 @@ This algorithm is the building blocks for complex algorithms like Djikstra, krus
 # Not so common but we will still review:
 ## Bit Manipulation
 ## Topological Sort
-## Kruskal's algorithm
-## Prim's algorithm
 
 
 &nbsp;
